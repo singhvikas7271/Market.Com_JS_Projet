@@ -1,0 +1,143 @@
+
+<style>
+#z{position:absolute;left:40%;top:20%;}
+
+#gg{position:absolute;top:13%;}
+#j{position:absolute;top:2%;width:20%;height:10%;font-family:cooper black;
+left:5%;font-size:2vw;font-weight:bold;overflow:auto;}
+
+</style>
+
+
+
+<body background="43.jpg">
+<div id="gg">
+Name:&nbsp;&nbsp;&nbsp;&nbsp; <input type="text" id="n" onblur="checkname()">
+		<span id="ne" style="color:red;"></span> <br><br>
+DOB:&nbsp;&nbsp;&nbsp;&nbsp; <input type="date" id="d" onblur="checkdate()">
+		<span id="de" style="color:red;"></span> <br><br>
+Email: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" id="e" onblur="checkemail()">
+	<span id="ee" style="color:red;"></span><br><br>
+Phone: &nbsp;&nbsp;&nbsp;&nbsp;<input type="text" id="p" onblur="checkphone()">
+	<span id="pe" style="color:red;"></span><br><br>
+Address:&nbsp; <input type="text" id="a" onblur="checkaddress()">
+		<span id="ae" style="color:red;"></span><br><br>
+<button id="s" onclick="show()">Show</button><br><br>
+<textarea id="t" rows="10" cols="40" readonly>
+</textarea>
+</div>
+<div id="j"><a href="index.html">Home</a>
+</div>
+<div id="z">
+<div style="overflow:hidden;width: 700px;position: relative;"><iframe width="700" height="440" src="https://maps.google.com/maps?width=700&amp;height=440&amp;hl=en&amp;q=lalpur%2Cranchi+(ArguS%20Academy)&amp;ie=UTF8&amp;t=h&amp;z=13&amp;iwloc=B&amp;output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe><div style="position: absolute;width: 80%;bottom: 10px;left: 0;right: 0;margin-left: auto;margin-right: auto;color: #000;text-align: center;"><small style="line-height: 1.8;font-size: 2px;background: #fff;">Powered by <a href="https://embedgooglemaps.com/fr/">Embedgooglemaps FR</a> & <a href="https://brightononline.ca/">custommap poster.com</a></small></div><style>#gmap_canvas img{max-width:none!important;background:none!important}</style></div><br />
+</div>
+<script>
+function checkname()
+{
+	var nm,nc;
+	nm=document.getElementById("n").value;
+	nc=/^[a-zA-Z ]+$/;
+	if((!nm.match(nc))||(nm.charAt(0)==" "))
+	{
+		document.getElementById("ne").innerHTML="**Name Error**";
+	return 'n';
+	}
+	else
+	{
+		document.getElementById("ne").innerHTML="";
+	return 'y';
+	}
+}
+function checkdate()
+{
+	var d,ed,sd,ey,sy;
+	d=document.getElementById("d").value;
+	ed=new Date(d);
+	sd=new Date();
+	ey=ed.getFullYear();
+	sy=sd.getFullYear();
+	if(sy-ey<18||d=="")
+	{
+		document.getElementById("de").innerHTML="**date Error**";
+	return 'n';
+	}
+	else
+	{
+		document.getElementById("de").innerHTML="";
+	return 'y';
+	}
+}
+function checkemail()
+{
+	var em,ec;
+	em=document.getElementById("e").value;
+	ec=/^[a-zA-Z0-9._-]+\@[a-zA-Z]+\.[a-zA-Z.]{2,6}$/;
+	if(!em.match(ec))
+	{
+		document.getElementById("ee").innerHTML="**Email Error**";
+	return 'n';
+	}
+	else
+	{
+		document.getElementById("ee").innerHTML="";
+return 'y';
+		}
+}
+function checkphone()
+{
+	var ph,phc;
+	ph=document.getElementById("p").value;
+	phc=/^[0-9]{10,10}$/;
+	if(!ph.match(phc))
+	{
+		document.getElementById("pe").innerHTML="**Phone Number Error**";
+	return 'n';
+	}
+	else
+	{
+		document.getElementById("pe").innerHTML="";
+	return 'y';
+	}
+}
+function checkaddress()
+{
+	var nm,nc;
+	nm=document.getElementById("a").value;
+	nc=/^[a-zA-Z0-9.#-, ]{10,200}$/;
+	if((!nm.match(nc))||(nm.charAt(0)==" "))
+	{
+		document.getElementById("ae").innerHTML="**Name Error**";
+	return 'n';
+	}
+	else
+	{
+		document.getElementById("ae").innerHTML="";
+		return 'y';
+	}
+}
+function show()
+{
+	if(checkname()=='y' && checkphone()=='y' && checkemail()=='y' && checkaddress()=='y' && checkdate()=='y')
+	{
+	var n,e,p,a,d;
+	a=document.getElementById("a").value;
+	n=document.getElementById("n").value;
+	e=document.getElementById("e").value;
+	p=document.getElementById("p").value;
+	d=document.getElementById("d").value;
+	document.getElementById("t").value="Name		:"+n+"\nDOB		:"+d+"\nEmail		:"+e+"\nPhone Number    :"+p+"\nAddress		:"+a;
+}
+else
+{
+alert("check");
+checkname();
+checkphone();
+checkemail();
+checkaddress();
+ checkdate();
+ 
+
+}
+}
+</script>
+</body>

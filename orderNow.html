@@ -1,0 +1,288 @@
+
+<style>
+#gg{position:absolute;top:13%;}
+#j{position:absolute;top:2%;width:20%;height:10%;font-family:cooper black;
+left:5%;font-size:2vw;font-weight:bold;overflow:auto;}
+</style>
+
+
+
+
+
+<script>
+function prd()
+{
+	var p,r,m;
+	p=document.getElementById("p").value;
+	if(p=='laptop')
+	{
+		r=56000;
+		m='14.jpg';
+	}
+	else if(p=='mobile')
+	{
+		r=20000;
+		m='21.jpg'
+	}
+	else if(p=='biography')
+	{
+		r=3100;
+		m='37.jpg'
+	}
+	else if(p=='indian')
+	{
+		r=1000;
+		m='29.jpg'
+	}
+	else
+	{
+		r=0;
+		m=' ';
+	}
+	document.getElementById("r").value=r;
+	document.getElementById("m").src=m;
+}
+function add()
+{
+var p,q,r,m;
+p=document.getElementById("p").value;
+q=document.getElementById("q").value;
+r=document.getElementById("r").value;
+m=document.getElementById("m").src;
+	if(p!='select' && q!='select')
+	{
+	p1=document.getElementById("p1").value;
+	p2=document.getElementById("p2").value;
+	p3=document.getElementById("p3").value;
+	p4=document.getElementById("p4").value;
+	p5=document.getElementById("p5").value;
+			if(p1==0)
+			{
+			document.getElementById("p1").value=p;
+			document.getElementById("q1").value=q;
+			document.getElementById("r1").value=r;
+			document.getElementById("m1").src  =m;
+			}
+			else if(p2==0)
+			{
+			document.getElementById("p2").value=p;
+			document.getElementById("q2").value=q;
+			document.getElementById("r2").value=r;
+			document.getElementById("m2").src  =m;
+			}
+			else if(p3==0)
+			{
+			document.getElementById("p3").value=p;
+			document.getElementById("q3").value=q;
+			document.getElementById("r3").value=r;
+			document.getElementById("m3").src  =m;
+			}
+			else if(p4==0)
+			{
+			document.getElementById("p4").value=p;
+			document.getElementById("q4").value=q;
+			document.getElementById("r4").value=r;
+			document.getElementById("m4").src  =m;
+			}
+			else if(p5==0)
+			{
+			document.getElementById("p5").value=p;
+			document.getElementById("q5").value=q;
+			document.getElementById("r5").value=r;
+			document.getElementById("m5").src  =m;
+			}
+			else
+			{
+			alert("Cart Full!");
+			}
+	}
+	else
+	{
+	alert("please select product and quantity both");
+	}
+}
+function cls1()
+{
+document.getElementById("p1").value=0;
+document.getElementById("q1").value=0;
+document.getElementById("r1").value=0;
+document.getElementById("m1").src  ="";
+}
+function cls2()
+{
+document.getElementById("p2").value=0;
+document.getElementById("q2").value=0;
+document.getElementById("r2").value=0;
+document.getElementById("m2").src  ="";
+}
+function cls3()
+{
+document.getElementById("p3").value=0;
+document.getElementById("q3").value=0;
+document.getElementById("r3").value=0;
+document.getElementById("m3").src  ="";
+}
+
+function bill()
+{
+var p1,q1,r1,a1=0;
+p1=document.getElementById("p1").value;
+q1=document.getElementById("q1").value;
+r1=document.getElementById("r1").value;
+	if(p1!=0 && q1!=0)
+	{
+	a1=q1*r1;
+	}
+var p2,q2,r2,a2=0;
+p2=document.getElementById("p2").value;
+q2=document.getElementById("q2").value;
+r2=document.getElementById("r2").value;
+	if(p2!=0 && q2!=0)
+	{
+	a2=q2*r2;
+	}
+var p3,q3,r3,a3=0;
+p3=document.getElementById("p3").value;
+q3=document.getElementById("q3").value;
+r3=document.getElementById("r3").value;
+	if(p3!=0 && q3!=0)
+	{
+	a3=q3*r3;
+	}
+var p4,q4,r4,a4=0;
+p4=document.getElementById("p4").value;
+q4=document.getElementById("q4").value;
+r4=document.getElementById("r4").value;
+	if(p4!=0 && q4!=0)
+	{
+	a4=q4*r4;
+	}
+var p5,q5,r5,a5=0;
+p5=document.getElementById("p5").value;
+q5=document.getElementById("q5").value;
+r5=document.getElementById("r5").value;
+	if(p5!=0 && q5!=0)
+	{
+	a5=q5*r5;
+	}
+	var a=0;
+	a=a1+a2+a3+a4+a5;
+	if(a!=0)
+	{
+	var n;
+	n=document.getElementById("n").value;
+	document.getElementById("b").value="Dear "+n+"Thank you for shopping";
+	document.getElementById("b").value+="\n Your shopping details are below:";
+	if(a1!=0)
+	{
+	document.getElementById("b").value+="\nProduct:"+p1+"@Rs."+r1+" unit(s):"+q1+" = "+a1;
+	}
+if(a2!=0)
+	{
+	document.getElementById("b").value+="\nProduct:"+p2+"@Rs."+r2+" unit(s):"+q2+" = "+a2;
+	}
+if(a3!=0)
+	{
+	document.getElementById("b").value+="\nProduct:"+p3+"@Rs."+r3+" unit(s):"+q3+" = "+a3;
+	}
+if(a4!=0)
+	{
+	document.getElementById("b").value+="\nProduct:"+p4+"@Rs."+r4+" unit(s):"+q4+" = "+a4;
+	}
+if(a5!=0)
+	{
+	document.getElementById("b").value+="\nProduct:"+p5+"@Rs."+r5+" unit(s):"+q5+" = "+a5;
+	}
+	
+	document.getElementById("b").value+="\nfinal amount : "+a;
+	var e,ph;
+	e=document.getElementById("e").value;
+	ph=document.getElementById("ph").value;
+	document.getElementById("b").value+="\nEmail sent on "+e;
+	document.getElementById("b").value+="\nMessage sent on "+ph;
+	}
+	else{
+	alert("please select product and quantity both");
+	}
+	
+}
+</script>
+<body background="43.jpg">
+
+
+<div id="gg">
+Name:<input type="text" id="n"><br><br>
+Email:<input type="text" id="e"><br><br>
+Phone:<input type="text" id="ph" maxlength="10"><br><br>
+select product
+		<select id="p" onchange="prd()">
+			<option value="select">select</option>
+			<option value="laptop">laptop</option>
+			<option value="mobile">mobile</option>
+			<option value="biography">biography</option>
+			<option value="indian">indian</option>
+		</select>
+quantity	
+	<select id="q">
+				<option value="select">select</option>
+				<option value="1">1</option>
+				<option value="2">2</option>
+				<option value="3">3</option>
+				<option value="4">4</option>
+				<option value="5">5</option>
+		</select>
+	rate	<input type="text" id="r">
+	photo	<img src=" " width="50" height="50" id="m">
+	<button onclick="add()">add to cart</button>
+<table border="1">
+<tr>
+	<th>product</th>
+	<th>quantity</th>
+	<th>rate</th>
+	<th>photo</th>
+	<th>Clear</th>
+</tr>
+<tr>
+	<th><input type="text" id="p1" readonly value="0"></th>
+	<th><input type="text" id="r1" readonly value="0"></th>
+	<th><input type="text" id="q1" readonly value="0"></th>
+	<th><img src=" " id="m1" width="50" height="50"></th>
+	<th><button onclick="cls1()">clear</button></th>
+<tr>
+<tr>
+	<th><input type="text" id="p2" readonly value="0"></th>
+	<th><input type="text" id="r2" readonly value="0"></th>
+	<th><input type="text" id="q2" readonly value="0"></th>
+	<th><img src=" " id="m2" width="50" height="50"></th>
+	<th><button onclick="cls2()">clear</button></th>
+<tr>
+<tr>
+	<th><input type="text" id="p3" readonly value="0"></th>
+	<th><input type="text" id="r3" readonly value="0"></th>
+	<th><input type="text" id="q3" readonly value="0"></th>
+	<th><img src=" " id="m3" width="50" height="50"></th>
+	<th><button onclick="cls3()">clear</button></th>
+<tr>
+<tr>
+	<th><input type="text" id="p4" readonly value="0"></th>
+	<th><input type="text" id="r4" readonly value="0"></th>
+	<th><input type="text" id="q4" readonly value="0"></th>
+	<th><img src=" " id="m4" width="50" height="50"></th>
+	<th><button onclick="cls3()">clear</button></th>
+<tr>
+<tr>
+	<th><input type="text" id="p5" readonly value="0"></th>
+	<th><input type="text" id="r5" readonly value="0"></th>
+	<th><input type="text" id="q5" readonly value="0"></th>
+	<th><img src=" " id="m5" width="50" height="50"></th>
+	<th><button onclick="cls3()">clear</button></th>
+<tr>
+</table>
+<button onclick="bill()">bill</button>
+<br>
+bill details<br>
+<textarea id="b" cols="50" rows="10" readonly></textarea>
+</div>
+<div id="j"><a href="index.html">Home</a>
+</div>
+</body>
